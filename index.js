@@ -1,12 +1,21 @@
 console.log("Hello! It is working!");
 
-function convert (arr, key) {
-  arr.forEach(obj => {
-    if (obj.hasOwnProperty(key) && typeof obj[key] === 'number') {
-      obj[key] = obj[key].toString();
-    }
-  });
+const testData = [
+  {
+      "Article": "8000020488080",
+      "Name": " Банан mini WT",
+      "PLU": 5432
+  },
+  {
+      "Article": "8000017725840",
+      "Name": " Мідії Чорноморьскі",
+      "PLU": 682
+  },
+  {
+      "Article": "8000019620490",
+      "Name": " М'ясо Морського Гребінця AFFISH",
+      "PLU": 2990
+  }
+]
 
-  return arr;
-}
-
+const listEl = document.querySelector(".search__list");
