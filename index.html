@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="uk">
   <head>
     <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="css/styles.css" />
     <title>PLU</title>
-    <link rel="stylesheet" href="css/styles.css" />
   </head>
   <body>
     <header class="header">
@@ -15,15 +16,25 @@
 
     <main>
       <div class="container">
-        <div class="search">
-          <input type="text" name="search" placeholder="Введіть назву товару" />
+        <div class="form-container">
+          <form class="search-form" id="search-form">
+            <input
+              type="text"
+              name="searchQuery"
+              autocomplete="off"
+              placeholder="Введіть назву товару..."
+            />
+            <button type="submit" id="search-button">Пошук</button>
+          </form>
         </div>
-        <ul class="search__list">
-          <li class="search__item">1234</li>
-        </ul>
+        <div class="search-result">
+          <ul class="search-list">
+            <li class="search-item">1234</li>
+          </ul>
+        </div>
       </div>
     </main>
 
-    <script src="index.js"></script>
+    <script src="index.js" type="module"></script>
   </body>
 </html>
