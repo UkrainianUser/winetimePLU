@@ -1,8 +1,18 @@
 console.log("Hello! It is working!");
 
-import mongoose from 'mongoose';
+import mongoose from "mongoose";
+import dotenv from 'dotenv';
 
-const DB_HOST = "mongodb+srv://PLUAdmin:<db_password>@cluster0.k8ker.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+dotenv.config();
 
-mongoose.connect();
+const DB_HOST = process.env.DB_HOST;
 
+mongoose.set('strictQuery', true);
+
+mongoose
+  .connect(DB_HOST)
+  .then(() => console.log("Database connected successfully!"))
+  .catch((error) => {
+    console.error("Database connection error:", error);
+    console.error("Error details:", error.message);
+  });
