@@ -4,13 +4,19 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" type="text/css" href="css/styles.css" />
     <title>PLU</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.1.0/modern-normalize.min.css"
+    />
+    <link rel="stylesheet" type="text/css" href="css/styles.css" />
   </head>
   <body>
     <header class="header">
       <div class="container">
-        <p>PLU</p>
+        <h1>PLU Search</h1>
       </div>
     </header>
 
@@ -20,16 +26,35 @@
           <form class="search-form" id="search-form">
             <input
               type="text"
-              name="searchQuery"
+              name="searchNameQuery"
               autocomplete="off"
               placeholder="Введіть назву товару..."
             />
-            <button type="submit" id="search-button">Пошук</button>
+            <input
+            type="number"
+            name="searchNumberQuery"
+            autocomplete="off"
+            placeholder="PLU або артикул..."
+          />
           </form>
         </div>
         <div class="search-result">
           <ul class="search-list">
-            <li class="search-item">1234</li>
+            <li class="search-item">
+              <span class="article">8000019287503</span>
+              <span class="name">Американська Камбала охолоджена філе WINETIME</span>
+              <span class="plu">2299</span>
+            </li>
+            <li class="search-item">
+              <span class="article">8000019587693</span>
+              <span class="name">Ананас БІО EastWest</span>
+              <span class="plu">2813</span>
+            </li>
+            <li class="search-item">
+              <span class="article">8000015720568</span>
+              <span class="name">Стейк Нью-Йорк Яловичий</span>
+              <span class="plu">31381</span>
+            </li>
           </ul>
         </div>
       </div>

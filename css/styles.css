@@ -1,0 +1,92 @@
+@font-face {
+  font-family: "Helvetica", sans-serif;
+  src: url(../fonts/helvetica.woff2);
+  font-style: normal;
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Helvetica-Bold", sans-serif;
+  src: url(../fonts/helvetica-bold.woff2);
+  font-style: normal;
+  font-weight: 700;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+button {
+  color: inherit;
+  font-size: inherit;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+li {
+  list-style-type: none;
+}
+
+body {
+  font-family: "Helvetica", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.4;
+  color: rgb(20, 20, 20);
+}
+
+.container {
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 10px;
+}
+
+h1 {
+  display: flex;
+  justify-content: center;
+  padding: 8px 0;
+}
+
+.form-container {
+  margin-bottom: 20px;
+  border-bottom: 2px solid rgb(20, 20, 20);
+  padding: 10px 0 20px;
+}
+.search-form {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.search-list {
+  display: block;
+}
+.search-item {
+  padding: 4px;
+  margin-bottom: 6px;
+  
+  border: 1px solid rgb(20, 20, 20);
+  border-radius: 8px;
+}
