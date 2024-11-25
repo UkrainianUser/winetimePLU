@@ -55,6 +55,11 @@ body {
   color: rgb(20, 20, 20);
 }
 
+header {
+  margin-bottom: 20px;
+  border-bottom: 2px solid rgb(20, 20, 20);
+}
+
 .container {
   max-width: 400px;
   margin-left: auto;
@@ -68,10 +73,14 @@ h1 {
   padding: 8px 0;
 }
 
+input {
+  padding: 4px;
+  border: 2px solid rgb(20, 20, 20);
+  border-radius: 4px;
+}
+
 .form-container {
-  margin-bottom: 20px;
-  border-bottom: 2px solid rgb(20, 20, 20);
-  padding: 10px 0 20px;
+  padding: 0 10px 20px;
 }
 .search-form {
   display: flex;
@@ -84,9 +93,21 @@ h1 {
   display: block;
 }
 .search-item {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 2px;
   padding: 4px;
-  margin-bottom: 6px;
-  
+  margin-bottom: 8px;
   border: 1px solid rgb(20, 20, 20);
   border-radius: 8px;
+}
+
+.article {
+  font-weight: bold;
+}
+.plu {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0 auto;
 }

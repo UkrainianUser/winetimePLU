@@ -1,45 +1,50 @@
-console.log("Hello! It is working!");
+// Пошук елементів форми та результатів у DOM
+const searchForm = document.querySelector("#search-form");
+const searchList = document.querySelector(".search-list");
 
-import pluList from "./data/index.js";
-
-const invokeAction = async ({ action, article, name, PLU }) => {
-  switch (action) {
-    case "read":
-      const allPlu = await pluList.getAll();
-      return console.log(allPlu);
-    case "getByArticle":
-      const oneArticle = await pluList.getByArticle(article);
-      return console.log(oneArticle) || null;
-    case "getByName":
-      const oneName = await pluList.getByName(name);
-      return console.log(oneName) || null;
-    case "getByPLU":
-      const onePLU = await pluList.getByPLU(PLU);
-      return console.log(onePLU) || null;
+// Обробка даних, отриманих із сервера
+export function renderData(pluList) {
+  if (!pluList || pluList.length === 0) {
+    searchList.innerHTML = '<li class="no-results">Нічого не знайдено</li>';
+    return;
   }
-};
 
-// invokeAction({action: "read"});
-// invokeAction({ action: "getByArticle", article: 8000017725840 });
-// invokeAction({action: "getByName", name: "Абрикос WT"});
-// invokeAction({action: "getByPLU", PLU: 2292});
+  const markup = pluList
+    .map(
+      (plu) => `
+        <li class="search-item">
+          <span class="article">${plu.article}</span>
+          <span class="name">${plu.name}</span>
+          <span class="plu">PLU: ${plu.PLU}</span>
+        </li>
+      `
+    )
+    .join("");
 
+  searchList.innerHTML = markup; // Динамічно оновлюємо список
+}
 
+// Обробка події на формі
+searchForm.addEventListener("submit", async (event) => {
+  event.preventDefault();
 
+  const searchName = event.target.searchNameQuery.value;
+  const searchNumber = event.target.searchNumberQuery.value;
 
-// import mongoose from "mongoose";
-// import dotenv from "dotenv";
+  const query = searchName
+    ? { action: "getByName", name: searchName }
+    : { action: "getByArticle", article: searchNumber };
 
-// dotenv.config();
+  try {
+    const response = await fetch("http://localhost:3000/api", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(query),
+    });
 
-// const { DB_HOST } = process.env;
-
-// mongoose.set("strictQuery", true);
-
-// mongoose
-//   .connect(DB_HOST)
-//   .then(() => console.log("Database connected successfully!"))
-//   .catch((error) => {
-//     console.error("Database connection error:", error);
-//     console.error("Error details:", error.message);
-//   });
+    const data = await response.json();
+    renderData(data);
+  } catch (error) {
+    console.error("Помилка запиту:", error);
+  }
+});

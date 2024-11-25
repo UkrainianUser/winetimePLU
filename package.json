@@ -2,12 +2,12 @@
   "name": "winetimeplu",
   "version": "1.0.0",
   "description": "A tool for working with data and PLU",
-  "main": "index.js",
+  "main": "server.js",
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index",
-    "start:dev": "nodemon index"
+    "start": "node server",
+    "start:dev": "nodemon server"
   },
   "keywords": [],
   "author": "",
@@ -16,7 +16,7 @@
     "dotenv": "^16.4.5",
     "express": "^4.21.1",
     "fs": "^0.0.1-security",
-    "mongoose": "^8.8.1",
+    "mongoose": "^8.5.2",
     "nodemon": "^3.1.7"
   }
 }
